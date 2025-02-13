@@ -1,5 +1,7 @@
 lsusb
+
 sudo apt install nano
+
 sudo add-apt-repository universe
 
 mkdir usbhdd

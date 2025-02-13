@@ -1,3 +1,32 @@
+lsusb
+sudo apt install nano
+sudo add-apt-repository universe
+
+mkdir usbhdd
+
+# find name of usb hdd disk partition (/dev/sdb4 for example)
+sudo nano /etc/fstab
+
+# add line at the end
+/dev/sdb4 usbhdd ext4 defaults 0 0
+
+ls -l
+...
+drwxr-xr-x 4 root   root   4096 Feb 13 09:59 usbhdd
+
+sudo chown ubuntu:ubuntu usbhdd
+
+ls -l
+drwxr-xr-x 4 ubuntu ubuntu 4096 Feb 13 09:59 usbhdd
+
+ls usbhdd/
+install-logs-2025-02-13.0  lost+found
+
+
+
+
+
+
 ------------------------------------------------------------------------------------------
 http://www.yahboom.net/study/Orin-NX-SUPER
 ------------------------------------------------------------------------------------------

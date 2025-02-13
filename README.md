@@ -22,6 +22,43 @@ sudo ./apply_binaries.sh
 
 
 ------------------------------------------------------------------------------------------
+## MOUNT NEW USB HDD 
+------------------------------------------------------------------------------------------
+# https://askubuntu.com/questions/125257/how-do-i-add-an-additional-hard-drive
+
+sudo fdisk -l
+
+Disk /dev/sda: 232.91 GiB, 250059350016 bytes, 488397168 sectors
+Disk model: TM3250820AS     
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: AC243013-F3C2-4244-9B66-D10D60D626B2
+
+Device     Start       End   Sectors   Size Type
+/dev/sda1   2048 488396799 488394752 232.9G Linux filesystem
+
+
+2.1 Create a mount point
+sudo mkdir /hdd  <<<<<<<------ NAME OF YOUR DEV "backup" (for example)
+
+2.2 Edit /etc/fstab
+Open /etc/fstab file with root permissions:
+
+sudo nano /etc/fstab
+And add following to the end of the file:
+
+/dev/sda1    /hdd    ext4    defaults    0    0
+
+2.3 Mount partition
+Last step and you're done!
+
+sudo mount /hdd
+
+## WORK
+
+------------------------------------------------------------------------------------------
 ## CHANGE DIR AND FILE PERMISSIONS
 ------------------------------------------------------------------------------------------
 # https://askubuntu.com/questions/6723/change-folder-permissions-and-ownership
